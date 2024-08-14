@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Input с placeholder'ами</title>
+<style>
+    body {
+        background-color: #7e73b2; /* Цвет фона */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    .container {
+        width: 300px;
+    }
+
+    .input-wrapper {
+        position: relative;
+        margin-bottom: 15px;
+    }
+
+    .input-wrapper input {
+        width: 100%;
+        padding: 15px 20px;
+        border-radius: 30px;
+        border: none;
+        outline: none;
+        box-sizing: border-box;
+        font-size: 16px;
+    }
+
+    .input-wrapper input::placeholder {
+        color: #666666;
+    }
+
+    .input-wrapper::before {
+        content: "Ваше имя";
+        position: absolute;
+        left: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        pointer-events: none;
+        color: #666666;
+    }
+
+    .input-wrapper[data-placeholder="name"]::before {
+        content: "Ваше имя";
+    }
+
+    .input-wrapper[data-placeholder="phone"]::before {
+        content: "+7 _ _ _ - _ _ _ - _ _ - _ _";
+    }
+
+    .input-wrapper[data-placeholder="email"]::before {
+        content: "Ваш e-mail";
+    }
+
+    .input-wrapper::after {
+        content: "*";
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        pointer-events: none;
+        color: #666666;
+    }
+
+    /* Чтобы скрыть placeholder внутри input */
+    .input-wrapper input::placeholder {
+        visibility: hidden;
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+        <div class="input-wrapper" data-placeholder="name">
+            <input type="text" placeholder="Ваше имя">
+        </div>
+        <div class="input-wrapper" data-placeholder="phone">
+            <input type="text" placeholder="+7 _ _ _ - _ _ _ - _ _ - _ _">
+        </div>
+        <div class="input-wrapper" data-placeholder="email">
+            <input type="text" placeholder="Ваш e-mail">
+        </div>
+    </div>
+</body>
+</html>
